@@ -12,7 +12,7 @@ Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeetsukumaran/vim-buffergator'
-
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -38,7 +38,6 @@ syntax on                   " syntax highlighting
 set hlsearch			    " Grifa as buscas
 
 
-"colorscheme delek
 colorscheme ir_black_alex2
 
 let mapleader=","
@@ -115,3 +114,5 @@ let g:airline_symbols.dirty='⚡'
 " If you only see boxes here it may be because your system doesn't have
 " the correct fonts. Try it in vim first and if that fails see the help 
 " pages for vim-airline :help airline-troubleshooting
+" sudo apt install fonts-powerline
+" After that reboot machine or just the fonts service
