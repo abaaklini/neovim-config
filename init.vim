@@ -7,20 +7,91 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-"plugins here, coc for example
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'scrooloose/nerdTree'
-Plug 'bling/vim-airline'
+Plug 'ervandew/supertab'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jeetsukumaran/vim-buffergator'
+
 
 call plug#end()
 
-nmap <C-n> :NERDTreeToggle<CR>
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+syntax enable
+
+set hidden
+set relativenumber
+set inccommand=split
+set notermguicolors
+set autowrite			    " Salvação divina
+set showmatch               " show matching brackets.
+set ignorecase              " case insensitive matching
+set hlsearch                " highlight search results
+set tabstop=4               " number of columns occupied by a tab character
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=4            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
+set number                  " add line numbers
+set wildmode=longest,list   " get bash-like tab completions
+filetype plugin indent on   " allows auto-indenting depending on file type
+syntax on                   " syntax highlighting
+set hlsearch			    " Grifa as buscas
+
+
+"colorscheme delek
+colorscheme ir_black_alex2
+
+let mapleader=","
+
+nnoremap <leader>ev :edit ~/.config/nvim/init.vim<cr>
+nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
+nnoremap <C-s> :w! <CR>
+nnoremap <C-q> :q! <CR>
+
+"buffer navigations
+nnoremap <C-Left> :bn<CR>
+nnoremap <C-Right> :bp<CR>
+
+"window navigations
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-g> <C-w>h
+nnoremap <TAB> <C-w>w
+
+" Acesso mais veloz ao command mode
+nmap ç :
+vmap ç :
+nmap Ç :!
+" Faz com que o zero retorne ao início da linha seguindo a edentação
+nmap 0 ^
+
+nmap < gg
+nmap > G
+
+nmap <F2> :NERDTreeToggle<CR>
+nmap <F12> :PlugInstall <CR>
+
+map <leader>h :noh<CR>
+
+" Python PEP8 Identation
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+"inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+"inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline_theme='minimalist'
+let g:SuperTabDefaultCompletionType = "<C-n>" "SuperTab plugin
+
+" Flagging Unnecessary Whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Note: You must define the dictionary first before setting values.
 " Also, it's a good idea to check whether it exists as to avoid 
