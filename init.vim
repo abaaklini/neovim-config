@@ -56,6 +56,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-g> <C-w>h
+nnoremap <C-h> <C-w>h
 nnoremap <TAB> <C-w>w
 
 " Acesso mais veloz ao command mode
@@ -82,8 +83,6 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-"inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-"inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline_theme='minimalist'
 let g:SuperTabDefaultCompletionType = "<C-n>" "SuperTab plugin
