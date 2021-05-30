@@ -37,10 +37,38 @@ filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set hlsearch			    " Grifa as buscas
 
+" FINDING FILES:
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" NOW WE CAN:
+" - Hit tab to :find by partial match
+" - Use * to make it fuzzy
+
+" THINGS TO CONSIDER:
+" - :b lets you autocomplete any open buffer
+
+" TAG JUMPING:
+
+" Create the `tags` file (may need to install ctags first)
+command! MakeTags !ctags -R .
+
+" NOW WE CAN:
+" - Use ^] to jump to tag under cursor
+" - Use g^] for ambiguous tags
+" - Use ^t to jump back up the tag stack
 
 colorscheme ir_black_alex2
 
 let mapleader=","
+
+"Opens Buffergator on the horizontal split
+let g:buffergator_viewport_split_policy = 'T'
 
 nnoremap <leader>ev :edit ~/.config/nvim/init.vim<cr>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<cr>
