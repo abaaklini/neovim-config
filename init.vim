@@ -76,8 +76,8 @@ nnoremap <C-s> :w! <CR>
 nnoremap <C-q> :q! <CR>
 
 "buffer navigations
-nnoremap <C-Left> :bn<CR>
-nnoremap <C-Right> :bp<CR>
+nnoremap <C-Left> :bp<CR>
+nnoremap <C-Right> :bn<CR>
 
 "window navigations
 nnoremap <C-j> <C-w>j
